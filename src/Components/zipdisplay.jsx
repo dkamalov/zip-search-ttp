@@ -1,3 +1,4 @@
+import React, { Component } from 'react';
 class zipdisplay extends Component {
 
     constructor(props) {
@@ -30,4 +31,4 @@ class zipdisplay extends Component {
 
 }
 
-export default zipDisplay
+export default zipdisplay
