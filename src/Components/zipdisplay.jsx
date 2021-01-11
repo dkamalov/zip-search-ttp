@@ -15,6 +15,19 @@ class zipdisplay extends Component {
         .catch((error) => console.error(error));
     }
 
+    render() {
+        return (
+            <div>
+                {this.state.cities.map((citiy,index)=> {
+                    return (
+                        <
+                    )
+                })}
+                   
+            </div>
+        )
+    }
+
 }
 
 export default zipDisplay
