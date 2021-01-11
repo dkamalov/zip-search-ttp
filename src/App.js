@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import zipdisplay from './components/zipdisplay/zipdisplay';
+import zipdisplay from './Components/zipdisplay';
 
 function App() {
   return (
