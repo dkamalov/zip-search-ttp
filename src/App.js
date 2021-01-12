@@ -1,13 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
-import zipdisplay from './Components/zipdisplay';
+import React, { Component } from 'react'
+import './App.css'
+import Zipdisplay from './components/Zipdisplay'
 
-function App() {
-  return (
-    <div className="App">
-      <zipdisplay />
-    </div>
-  );
+class App extends Component {
+    renders() {
+        return (
+            <div>
+                <Zipdisplay />
+            </div>
+        )
+    }
 }
 
 export default App;
