@@ -36,21 +36,23 @@ class Zipdisplay extends Component {
             <div>
                 <input type='text' value={this.state.zipCode} onChange={this.handleInputChange}/>
                 {this.state.locationInfo.map((loc,index) => {
-                return (
-                    <div>
-                        
-                        <Citiesinfo
-                            go = {this.state.zipFound}
-                            city = {loc.City} 
-                            key = {index}
-                            state = {loc.State}
-                            pop = {loc.EstimatedPopulation}
-                            long = {loc.Long}
-                            lat = {loc.Lat}
-                            wage = {loc.TotalWages}
-                    />
-                    </div>
-                );
+                    if (loc.Zipcode === this.state.zipCode) {
+                        console.log("IM IN!!!")
+                     return (
+                         <div>
+                            <Citiesinfo
+                                go = {this.state.zipFound}
+                                city = {loc.City} 
+                                key = {index}
+                                state = {loc.State}
+                                pop = {loc.EstimatedPopulation}
+                                long = {loc.Long}
+                                lat = {loc.Lat}
+                                wage = {loc.TotalWages}
+                            />
+                        </div>
+                        );
+                    } else return console.log(loc.Zipcode + " " + this.state.zipCode)
             })}
             {console.log(this.state.zipCode)}
             {console.log("running...")}
