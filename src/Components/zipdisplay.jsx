@@ -58,4 +58,5 @@ class Zipdisplay extends Component {
         )
     }
 }
+
 export default Zipdisplay
