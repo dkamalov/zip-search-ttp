@@ -18,7 +18,6 @@ class Zipdisplay extends Component {
             const locationInfo = await axios.get('http://ctp-zip-api.herokuapp.com/zip/10016')
             this.setState({locationInfo: locationInfo.data})
             console.log(this.state.locationInfo)
-            console.log("HELLLOOOOOO")
         }
         catch (error){
             console.error(error)
@@ -30,6 +29,7 @@ class Zipdisplay extends Component {
             zipCode: e.target.value
         })
     }
+
 
     render() {
         return (
@@ -53,11 +53,10 @@ class Zipdisplay extends Component {
                 );
             })}
             {console.log(this.state.zipCode)}
-            {console.log("running")}
+            {console.log("running...")}
             </div>
         )
     }
-
-
 }
+
 export default Zipdisplay
