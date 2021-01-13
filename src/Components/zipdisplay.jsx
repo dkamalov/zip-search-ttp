@@ -17,7 +17,6 @@ class Zipdisplay extends Component {
         try {
             const locationInfo = await axios.get('http://ctp-zip-api.herokuapp.com/zip/10016')
             this.setState({locationInfo: locationInfo.data})
-            console.log(this.state.locationInfo)
         }
         catch (error){
             console.error(error)
@@ -37,7 +36,6 @@ class Zipdisplay extends Component {
                 <input type='text' value={this.state.zipCode} onChange={this.handleInputChange}/>
                 {this.state.locationInfo.map((loc,index) => {
                     if (loc.Zipcode === this.state.zipCode) {
-                        console.log("IM IN!!!")
                      return (
                          <div>
                             <Citiesinfo
@@ -49,13 +47,12 @@ class Zipdisplay extends Component {
                                 long = {loc.Long}
                                 lat = {loc.Lat}
                                 wage = {loc.TotalWages}
+                                zip = {loc.Zipcode}
                             />
                         </div>
                         );
-                    } else return console.log(loc.Zipcode + " " + this.state.zipCode)
+                    } else return null
             })}
-            {console.log(this.state.zipCode)}
-            {console.log("running...")}
             </div>
         )
     }
