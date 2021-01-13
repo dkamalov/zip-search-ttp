@@ -1,21 +1,63 @@
-import React, { Component } from 'react';
-class zipdisplay extends Component {
+import React, { Component } from 'react'
+import axios from 'axios'
+import Citiesinfo from './citiesinfo'
 
-    constructor(props) {
+class Zipdisplay extends Component {
+    constructor (props) {
+        super(props)
+
         this.state = {
-            zipcodes : [],
-            cities : [],
-        };
+            locationInfo : [],
+            zipCode: '',
+            zipFound: false
+        }
     }
 
-    componentDidMount(){
-        fetch('http://ctp-zip-api.herokuapp.com/city/:cityname')
-        .then((response) => response.json())
-        .then((response) => {this.setstate({cities: response.results})
-        })
-        .catch((error) => console.error(error));
+    async componentDidMount() {
+        try {
+            const locationInfo = await axios.get('http://ctp-zip-api.herokuapp.com/zip/10016')
+            this.setState({locationInfo: locationInfo.data})
+            console.log(this.state.locationInfo)
+            console.log("HELLLOOOOOO")
+        }
+        catch (error){
+            console.error(error)
+        }
     }
+
+    handleInputChange = (e) => {
+        this.setState({
+            zipCode: e.target.value
+        })
+    }
+
+    render() {
+        return (
+            <div>
+                <input type='text' value={this.state.zipCode} onChange={this.handleInputChange}/>
+                {this.state.locationInfo.map((loc,index) => {
+                return (
+                    <div>
+                        
+                        <Citiesinfo
+                            go = {this.state.zipFound}
+                            city = {loc.City} 
+                            key = {index}
+                            state = {loc.State}
+                            pop = {loc.EstimatedPopulation}
+                            long = {loc.Long}
+                            lat = {loc.Lat}
+                            wage = {loc.TotalWages}
+                    />
+                    </div>
+                );
+            })}
+            {console.log(this.state.zipCode)}
+            {console.log("running")}
+            </div>
+        )
+    }
+
 
 }
-
-export default zipdisplay
+export default Zipdisplay

@@ -1,11 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
-import zipdisplay from './Components/zipdisplay';
+import Zipdisplay from './Components/zipdisplay'
+import React from 'react'
 
 function App() {
   return (
     <div className="App">
-      <zipdisplay />
+      <Zipdisplay />
     </div>
   );
 }
