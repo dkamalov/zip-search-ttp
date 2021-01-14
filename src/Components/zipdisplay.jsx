@@ -23,10 +23,8 @@ class Zipdisplay extends Component {
 
   async componentDidMount() {
       
-    axios.get(`https://ctp-zip-api.herokuapp.com/zip/${this.state.zip}`).then((response) => {
-        
+        const response = await axios.get(`https://ctp-zip-api.herokuapp.com/zip/${this.state.zip}`) 
         this.setState({locationInfo: response.data, resultsFound: true });
-      })
       
   }
 
